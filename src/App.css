@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+
+}
+body {
+  overflow-x: hidden;
+ 
+
 }
 
 .App-logo {
@@ -35,4 +41,185 @@
   to {
     transform: rotate(360deg);
   }
+}
+.banner-image {
+  background-image: url('./images/desktop/image-header.jpg');
+  background-size: cover;
+ 
+}
+.nav-item{
+  font-family: 'Barlow', sans-serif;
+  font-size: 21px;
+}
+h1{
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+p{
+  font-family: 'Barlow', sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: hsl(232, 10%, 55%);
+
+}
+.nav-item :hover {
+    background-color: #61dafb;
+    border-radius: 50px;
+    transition: 0.5s ease;
+  
+}
+#learn {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative; /* Add this line */
+}
+
+#learn:hover {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: px solid hsl(51, 100%, 49%);
+  /* Change this line to make the line yellow */
+}
+#learn:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px; /* Adjust line thickness as needed */
+  background-color: hsl(51, 100%, 49%); /* Yellow color */
+  bottom: 6px; /* Adjust this value to move the line up or down */
+  left: -2px;
+  z-index: -1;
+}
+#learn1 {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative; /* Add this line */
+}
+
+#learn1:hover {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: px solid hsl(51, 100%, 49%);
+  /* Change this line to make the line yellow */
+}
+#learn1:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px; /* Adjust line thickness as needed */
+  background-color: hsl(7, 99%, 70%); /* Yellow color */
+  bottom: 6px; /* Adjust this value to move the line up or down */
+  left: 4px;
+  z-index: -1;
+}
+.img-fluid {
+  max-width: 104%;
+  height: auto;
+}
+.card {
+  background: url('./images/desktop/image-graphic-design.jpg') center/cover no-repeat;
+  width: 104%;
+}
+.cover {
+  background: url('./images/desktop/image-gallery-milkbottles.jpg') center/cover no-repeat;
+  
+}
+#card {
+  background: url('./images/desktop/image-photography.jpg') center/cover no-repeat;
+  width: 104%;
+}
+h5 {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: hsl(167, 40%, 24%)
+}
+
+#card-body {
+  font-family: 'Fraunces', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color:hsl(198, 62%, 26%);
+}
+.card-text{
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(167, 40%, 24%)
+}
+#card-text{
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(198, 62%, 26%);
+}
+
+.user-content p{
+  margin-top:5px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: hsl(198, 62%, 26%);
+
+}
+
+
+#test-card{
+    border: none;
+    background-image: none;
+}
+
+#test-text{
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color:hsl(197, 65%, 14%);
+
+}
+
+span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color:hsl(0, 0%, 47%);
+}
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color:hsl(0, 0%, 47%);
+}
+
+ul {
+  list-style-type: none;
+  
+}
+
+li {
+  margin-bottom: 10px; /* Adjust the space between items as needed */
+  font-family: 'Barlow', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: hsl(167, 40%, 24%);
+}
+li:hover {
+ 
+  color: white;
+}
+
+.icon{
+  font-size: 24px;
+  color:hsl(167, 40%, 24%) ;
+}
+.icon:hover{
+  font-size: 24px;
+  color: white;
 }

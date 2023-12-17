@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+import './App.css';
+import {useState} from 'react'
+function App() {
+//   const [count,setCount] = useState(0);
+//  function increase(){
+//      setCount(count+1)
+//   }
+//   function decrease(){
+//     setCount(count-1)
+//  }
+//  function reset(){
+//   setCount(0) // set to zero
+// }
+//   return (
+//   <div>
+//     <button onClick={increase}>increase</button>
+//     <button onClick={decrease}>decrease</button>
+//     <button onClick={reset}>reset</button>
+//      {count}
+//   </div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+const [todoList ,setTodoList]=useState([])   //list store hogi idhr
+const [newTask ,setNewTask]=useState("")   // new task rerender krny liye use hoga
 
-## Available Scripts
+const handleChange =(e)=>{
+  setNewTask(e.target.value); // value target kr rahy grab info about input
+}
+const addTask=() =>{
+   
+    const task = {
+    id:todoList.length === 0 ? 1 : todoList[todoList.length - 1].id+1, //it assigns an ID of 1. Otherwise, it assigns an ID one greater than the ID of the last task in the list. This is a common approach for generating unique IDs for new items 
+    taskName: newTask,
+    completed:false
+    }
+    //  const newTodoList = [...todoList,newTask];
+    //  setTodoList(newTodoList);
+    setTodoList([...todoList,task])
+}
+const deleteTask=(id)=>{
+  setTodoList(todoList.filter((task)=> task.id !== id));
+  //which means it will keep all tasks whose id does not match the provided id.
 
-In the project directory, you can run:
+}
+const completedTask = (id) => {
+  setTodoList(todoList.map((task) => {
+    if (task.id === id) {
+      return { ...task, completed: true };
+    } else {
+      return task;
+    }
+  }));
+}
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+return (
+<>
+<div className='addTask'>
+<input onChange={handleChange}/>
+<button onClick={addTask}>Add Task</button>
+</div>
+<div className='list'>
+{todoList.map((task)=>{
+  return (
+    <div style={{ backgroundColor: task.completed ? "green" : "white" }}>
+      <h1>{task.taskName}</h1>
+      <button onClick={() => deleteTask(task.id)}>X</button>
+      <button onClick={() => completedTask(task.id)}>Completed</button>
+    </div>
+  )
+})}
+</div>
+</>
+  );
+}
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
